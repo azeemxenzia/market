@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>local route location </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            height: 100vh;
+            margin: 20;
+            background-color: #f0f0f0;
+        }
+
+        #copyContainer {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+            width:auto;
+        }
+
+        .replyContainer {
+            margin-right: 10px;
+            cursor: pointer;
+            width: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .replyText {
+            padding: 20px;
+            border: 2px solid #3498db;
+            outline: 2px solid #95a5a6;
+            background-color: #ecf0f1;
+            color: #2c3e50;
+            width: 100%;
+            overflow-block:hidden;
+            text-align: center;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-bottom: 5px; /* Added space between replyText elements */
+        }
+
+        .replyText:hover {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        #notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px;
+            background-color: #2ecc71;
+            color: #fff;
+            border-radius: 5px;
+            opacity: 0;
+            visibility: hidden;
+            animation: fadeInOut 1s ease-out forwards;
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; visibility: hidden; }
+            10% { opacity: 1; visibility: visible; }
+            90% { opacity: 1; visibility: visible; }
+            100% { opacity: 0; visibility: hidden; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="copyContainer">
+        <div class="replyContainer" onclick="copyToClipboard('reply1')">
+            <div class="replyText" id="reply1" data-title="Huntingdon England" data-message="Huntingdon England">PE Huntingdon England</div>
+        </div>
+        <div class="replyContainer" onclick="copyToClipboard('reply2')">
+            <div class="replyText" id="reply2" data-title="Northampton  Northamptonshire" data-message="Northampton  Northamptonshire">NN Northampton  Northamptonshire</div>
+        </div>
+        <div class="replyContainer" onclick="copyToClipboard('reply3')">
+            <div class="replyText" id="reply3" data-title="Corby England" data-message="Corby England">NN Corby England</div>
+        </div>
+        <div class="replyContainer" onclick="copyToClipboard('reply4')">
+            <div class="replyText" id="reply4" data-title="Peterborough England" data-message="Peterborough England">PE Peterborough England</div>
+        </div>
+        <div class="replyContainer" onclick="copyToClipboard('reply5')">
+            <div class="replyText" id="reply5" data-title="Boston Lincolnshire, United Kingdom" data-message="Boston Lincolnshire, United Kingdom">PE Boston Lincolnshire, United Kingdom</div>
+        </div>
+        <div class="replyContainer" onclick="copyToClipboard('reply6')">
+            <div class="replyText" id="reply6" data-title="Spalding Lincolnshire" data-message="Spalding Lincolnshire">PE Spalding Lincolnshire</div>
+        </div>
+        <div class="replyContainer" onclick="copyToClipboard('reply7')">
+            <div class="replyText" id="reply7" data-title="Kettering Northamptonshire, United Kingdom" data-message="Kettering Northamptonshire, United Kingdom">NN Kettering Northamptonshire, United Kingdom</div>
+        </div>
+        <div class="replyContainer" onclick="copyToClipboard('reply8')">
+            <div class="replyText" id="reply8" data-title="Lincoln  Lincolnshire" data-message="Lincoln  Lincolnshire">LN Lincoln  Lincolnshire</div>
+        </div>
+        <div class="replyContainer" onclick="copyToClipboard('reply9')">
+            <div class="replyText" id="reply9" data-title="Leicester United Kingdom" data-message="Leicester United Kingdom">LE Market Harborough, England</div>
+        </div>
+        <div class="replyContainer" onclick="copyToClipboard('reply10')">
+            <div class="replyText" id="reply10" data-title="Rushden England" data-message="Rushden England">NN Rushden England</div>
+        </div>
+        <div class="replyContainer" onclick="copyToClipboard('reply11')">
+            <div class="replyText" id="reply11" data-title="Wisbech England" data-message="Wisbech England">PE Wisbech England</div>
+        </div>
+        <div class="replyContainer" onclick="copyToClipboard('reply12')">
+            <div class="replyText" id="reply12" data-title="St neots England" data-message="St neots England">PE St neots England</div>
+        </div>
+        <div class="replyContainer" onclick="copyToClipboard('reply13')">
+            <div class="replyText" id="reply13" data-title="Wellingborough Northamptonshire" data-message="Wellingborough Northamptonshire">NN Wellingborough Northamptonshire</div>
+        </div>
+        <div class="replyContainer" onclick="copyToClipboard('reply14')">
+            <div class="replyText" id="reply14" data-title="Kingston upon Hull" data-message="Kingston upon Hull">HU Kingston upon Hull</div>
+        </div>
+        <div class="replyContainer" onclick="copyToClipboard('reply15')">
+            <div class="replyText" id="reply15" data-title="£25 Assemb Divan" data-message="Newcastle-under-Lyme England">ST Newcastle-under-Lyme England</div>
+        </div>
+        <div class="replyContainer" onclick="copyToClipboard('reply16')">
+            <div class="replyText" id="reply16" data-title="Nottingham United Kingdom" data-message="Nottingham United Kingdom">NG Nottingham United Kingdom</div>
+        </div>
+        <div class="replyContainer" onclick="copyToClipboard('reply17')">
+            <div class="replyText" id="reply17" data-title="Mansfield Nottinghamshire" data-message="Mansfield Nottinghamshire">NG Mansfield Nottinghamshire</div>
+        </div>
+        <div class="replyContainer" onclick="copyToClipboard('reply18')">
+            <div class="replyText" id="reply18" data-title="Blackpool England" data-message="Blackpool England">FY Blackpool England</div>
+        </div>
+        <div class="replyContainer" onclick="copyToClipboard('reply19')">
+            <div class="replyText" id="reply19" data-title="Ruthin Wales" data-message="Ruthin Wales">LL Ruthin Wales</div>
+        </div>
+        <div class="replyContainer" onclick="copyToClipboard('reply20')">
+            <div class="replyText" id="reply20" data-title="Wrexham Wales" data-message="Wrexham Wales">LL Wrexham Wales</div>
+        </div>
+        <div class="replyContainer" onclick="copyToClipboard('reply21')">
+            <div class="replyText" id="reply21" data-title="Chesterfield England" data-message="Chesterfield England">S Chesterfield England</div>
+        </div>
+        <div class="replyContainer" onclick="copyToClipboard('reply22')">
+            <div class="replyText" id="reply22" data-title="Worksop England" data-message="Worksop England">S Worksop England</div>
+        </div>
+        <div class="replyContainer" onclick="copyToClipboard('reply23')">
+            <div class="replyText" id="reply23" data-title="Preston Lancashire" data-message="Preston Lancashire">PR Preston Lancashire</div>
+        </div>
+        <div class="replyContainer" onclick="copyToClipboard('reply24')">
+            <div class="replyText" id="reply24" data-title="Bolton England" data-message="Bolton England">BL Bolton England</div>
+        </div>
+        <div class="replyContainer" onclick="copyToClipboard('reply25')">
+            <div class="replyText" id="reply25" data-title="St. Helens Merseyside" data-message="St. Helens Merseyside">WA St. Helens Merseyside</div>
+        </div>
+        <div class="replyContainer" onclick="copyToClipboard('reply26')">
+            <div class="replyText" id="reply26" data-title="Stockport England" data-message="Stockport England">SK Stockport England</div>
+        </div>
+        <div class="replyContainer" onclick="copyToClipboard('reply27')">
+            <div class="replyText" id="reply27" data-title="Halifax England" data-message="Halifax England">HX Halifax England</div>
+        </div>
+        <div class="replyContainer" onclick="copyToClipboard('reply28')">
+            <div class="replyText" id="reply28" data-title="Middlesbrough England" data-message="Middlesbrough England">TS Middlesbrough England</div>
+        </div>
+        <div class="replyContainer" onclick="copyToClipboard('reply29')">
+            <div class="replyText" id="reply29" data-title="Redditch England" data-message="Redditch England">B Redditch England</div>
+        </div>
+        <div class="replyContainer" onclick="copyToClipboard('reply30')">
+            <div class="replyText" id="reply30" data-title="Stockton-on-Tees England" data-message="Stockton-on-Tees England">TS Stockton-on-Tees England</div>
+        </div>
+        <div class="replyContainer" onclick="copyToClipboard('reply31')">
+            <div class="replyText" id="reply31" data-title="Keighley England" data-message="Keighley England">BD Keighley England</div>
+        </div>
+
+        <div class="replyContainer" onclick="copyToClipboard('reply32')">
+            <div class="replyText" id="reply32" data-title="Gateshead England" data-message="Keighley England">NE Gateshead England</div>
+        </div>
+
+        <div class="replyContainer" onclick="copyToClipboard('reply33')">
+            <div class="replyText" id="reply33" data-title="City of Sunderland England" data-message="Keighley England">SR City of Sunderland England</div>
+        </div>
+
+        <div class="replyContainer" onclick="copyToClipboard('reply34')">
+            <div class="replyText" id="reply34" data-title="Durham Durham" data-message="Keighley England">DH Durham Durham</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply35')">
+            <div class="replyText" id="reply35" data-title="Darlington Co Durham" data-message="Darlington Co Durham">DL Darlington Co Durham</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply36')">
+            <div class="replyText" id="reply36" data-title="Preston Lancashire" data-message="Preston Lancashire">PR Preston Lancashire</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply37')">
+            <div class="replyText" id="reply37" data-title="Normanton West Yorkshire" data-message="Normanton West Yorkshire">WF Normanton West Yorkshire</div>
+        </div>
+
+        <div class="replyContainer" onclick="copyToClipboard('reply38')">
+            <div class="replyText" id="reply38" data-title="Bootle England" data-message="Bootle England">L Bootle England</div>
+        </div>
+
+        <div class="replyContainer" onclick="copyToClipboard('reply39')">
+            <div class="replyText" id="reply39" data-title="Smethwick England" data-message="Smethwick England">B Smethwick England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply40')">
+            <div class="replyText" id="reply40" data-title="Macclesfield England" data-message="Macclesfield England">SK Macclesfield England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply41')">
+            <div class="replyText" id="reply41" data-title="Liverpool England" data-message="Liverpool England">L Liverpool England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply42')">
+            <div class="replyText" id="reply42" data-title="Nelson, Lancashire" data-message="Nelson, Lancashire">BB Nelson, Lancashire</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply43')">
+            <div class="replyText" id="reply43" data-title="Rochdale England" data-message="Rochdale England">OL Rochdale England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply44')">
+            <div class="replyText" id="reply44" data-title="Oldham United Kingdom" data-message="Oldham United Kingdom">OL Oldham United Kingdom</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply45')">
+            <div class="replyText" id="reply45" data-title="Walsall England" data-message="Walsall England">WS Walsall England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply46')">
+            <div class="replyText" id="reply46" data-title="Manchester United Kingdom" data-message="Manchester United Kingdom">M Manchester United Kingdom</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply47')">
+            <div class="replyText" id="reply47" data-title="Leeds England" data-message="Leeds England">LS Leeds England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply48')">
+            <div class="replyText" id="reply48" data-title="Birkenhead England" data-message="Birkenhead England">CH Birkenhead England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply49')">
+            <div class="replyText" id="reply49" data-title="Southport England" data-message="Southport England">PR Southport England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply50')">
+            <div class="replyText" id="reply50" data-title="Solihull England" data-message="Solihull England">B Solihull England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply51')">
+            <div class="replyText" id="reply51" data-title="Cannock England" data-message="Cannock England">WS Cannock England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply52')">
+            <div class="replyText" id="reply52" data-title="Jarrow England" data-message="Jarrow England">NE Jarrow England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply53')">
+            <div class="replyText" id="reply53" data-title="Chester Cheshire" data-message="Chester Cheshire">CH Chester Cheshire</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply54')">
+            <div class="replyText" id="reply54" data-title="Skipton England" data-message="Skipton England">BD Skipton England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply55')">
+            <div class="replyText" id="reply55" data-title="Newcastle upon tyne England" data-message="Newcastle upon tyne England">NE Newcastle upon tyne England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply56')">
+            <div class="replyText" id="reply56" data-title="South Shields England" data-message="South Shields England">NE South Shields England</div>
+        </div>
+
+        <div class="replyContainer" onclick="copyToClipboard('reply57')">
+            <div class="replyText" id="reply57" data-title="Runcorn England" data-message="Runcorn England">WA Runcorn England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply58')">
+            <div class="replyText" id="reply58" data-title="Accrington England" data-message="Accrington England">BB Accrington England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply59')">
+            <div class="replyText" id="reply59" data-title="Loughborough England" data-message="Loughborough England">LE Loughborough England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply60')">
+            <div class="replyText" id="reply60" data-title="Crewe England" data-message="Crewe England">CW Crewe England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply61')">
+            <div class="replyText" id="reply61" data-title="Coventry United kingdom" data-message="Coventry United kingdom">CV Coventry United kingdom</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply62')">
+            <div class="replyText" id="reply62" data-title="Nuneaton Warwickshire" data-message="Nuneaton Warwickshire">CV Nuneaton Warwickshire</div>
+        </div>
+
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply63')">
+            <div class="replyText" id="reply63" data-title="Hinckley England" data-message="Hinckley England">CV Hinckley England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply64')">
+            <div class="replyText" id="reply64" data-title="Rugby Warwickshire" data-message="Rugby Warwickshire">CV Rugby Warwickshire</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply65')">
+            <div class="replyText" id="reply65" data-title="Dudley England" data-message="Dudley England">DY Dudley England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply66')">
+            <div class="replyText" id="reply66" data-title="Stourbridge England" data-message="Stourbridge England">DY Stourbridge England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply67')">
+            <div class="replyText" id="reply67" data-title="Dronfield England" data-message="Dronfield England">S Dronfield England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply68')">
+            <div class="replyText" id="reply68" data-title="Kidderminster England" data-message="Keighley England">DY Kidderminster England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply69')">
+            <div class="replyText" id="reply69" data-title="Telford England" data-message="Telford England">TF Telford England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply70')">
+            <div class="replyText" id="reply70" data-title="Derby England" data-message="Derby England">DE Derby England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply71')">
+            <div class="replyText" id="reply71" data-title="Wolverhampton England" data-message="Wolverhampton England">WV Wolverhampton England</div>
+        </div>
+
+        <div class="replyContainer" onclick="copyToClipboard('reply72')">
+            <div class="replyText" id="reply72" data-title="Stoke-on trent England" data-message="Stoke-on trent England">ST Stoke-on trent England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply73')">
+            <div class="replyText" id="reply73" data-title="Bilston England" data-message="Bilston England">WV Bilston England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply74')">
+            <div class="replyText" id="reply74" data-title="Stoke-on trent England" data-message="Stoke-on trent England">ST Stoke-on trent England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply75')">
+            <div class="replyText" id="reply75" data-title="Wigan England" data-message="Wigan England">WN Wigan England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply76')">
+            <div class="replyText" id="reply76" data-title="Sheffield England" data-message="Sheffield England">S Sheffield England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply77')">
+            <div class="replyText" id="reply77" data-title="Rotherham England" data-message="Rotherham England">S Rotherham England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply78')">
+            <div class="replyText" id="reply78" data-title="Barnsley England" data-message="Keighley England">S Barnsley England</div>
+        </div>
+
+        <div class="replyContainer" onclick="copyToClipboard('reply79')">
+            <div class="replyText" id="reply79" data-title="Barnsley" data-message="Keighley">S </div>
+        </div>
+
+        <div class="replyContainer" onclick="copyToClipboard('reply80')">
+            <div class="replyText" id="reply80" data-title="City of Bradford" data-message="City of Bradford">BD City of Bradford</div>
+        </div>
+
+        <div class="replyContainer" onclick="copyToClipboard('reply81')">
+            <div class="replyText" id="reply81" data-title="Wakefield England" data-message="Wakefield England">WF Wakefield England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply82')">
+            <div class="replyText" id="reply82" data-title="York England" data-message="York England">YO York England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply83')">
+            <div class="replyText" id="reply83" data-title="Doncaster England" data-message="Doncaster England">DN Doncaster England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply84')">
+            <div class="replyText" id="reply84" data-title="Pontefract England" data-message="Pontefract England">WF Pontefract England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply85')">
+            <div class="replyText" id="reply85" data-title="Huddersfield England" data-message="Huddersfield England">DH Huddersfield England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply86')">
+            <div class="replyText" id="reply86" data-title="Spennymoor England" data-message="Spennymoor England">DL Spennymoor England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply87')">
+            <div class="replyText" id="reply87" data-title="Blackburn England" data-message="Blackburn England">BB Blackburn England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply88')">
+            <div class="replyText" id="reply88" data-title="Clitheroe England" data-message="Clitheroe England">BB Clitheroe England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply89')">
+            <div class="replyText" id="reply8" data-title="Warrington England" data-message="Warrington England">WA Warrington England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply90')">
+            <div class="replyText" id="reply90" data-title="Blyth Northumberland" data-message="Blyth Northumberland">NE Blyth Northumberland</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply91')">
+            <div class="replyText" id="reply91" data-title="Widnes England" data-message="Widnes England">L Widnes England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply92')">
+            <div class="replyText" id="reply92" data-title="Ashton-under-lyne England" data-message="Ashton-under-lyne England">M Ashton-under-lyne England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply93')">
+            <div class="replyText" id="reply93" data-title="Prescot England" data-message="Prescot England">L Prescot England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply94')">
+            <div class="replyText" id="reply94" data-title="Hartlepool England" data-message="Hartlepool England">TS Hartlepool England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply95')">
+            <div class="replyText" id="reply95" data-title="Sale Cheshire" data-message="Sale Cheshire">M Sale Cheshire</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply96')">
+            <div class="replyText" id="reply96" data-title="Leigh Wigan, United Kingdom" data-message="Leigh Wigan, United Kingdom">WN Leigh Wigan, United Kingdom</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply97')">
+            <div class="replyText" id="reply97" data-title="City of Salford England" data-message="City of Salford England">M City of Salford England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply98')">
+            <div class="replyText" id="reply98" data-title="Leamington Spa Warwickshire" data-message="Leamington Spa Warwickshire">CV Leamington Spa Warwickshire</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply99')">
+            <div class="replyText" id="reply99" data-title="Prestatyn Wales" data-message="Prestatyn Wales">LL Prestatyn Wales</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply100')">
+            <div class="replyText" id="reply100" data-title="Rhyl Wales" data-message="Rhyl Wales">LL</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply101')">
+            <div class="replyText" id="reply101" data-title="Birmingham United Kingdom" data-message="Birmingham United Kingdom">B Birmingham United Kingdom</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply102')">
+            <div class="replyText" id="reply102" data-title="Grantham England" data-message="Grantham England">NG Grantham England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply103')">
+            <div class="replyText" id="reply103" data-title="Newark-on-trent Nottingham, United Kingdom" data-message="Newark-on-trent Nottingham, United Kingdom">NG Newark-on-trent Nottingham, United Kingdom</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply104')">
+            <div class="replyText" id="reply104" data-title="West Bromwich England" data-message="West Bromwich England">B West Bromwich England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply105')">
+            <div class="replyText" id="reply105" data-title="Ashington Northumberland" data-message="Ashington Northumberland">NE Ashington Northumberland</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply106')">
+            <div class="replyText" id="reply106" data-title="Bedlington England" data-message="Bedlington England">NE Bedlington England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply107')">
+            <div class="replyText" id="reply107" data-title="Bilston England" data-message="Bilston England">WV Bilston England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply108')">
+            <div class="replyText" id="reply108" data-title="Oldbury Sandwell United Kingdom" data-message="Oldbury Sandwell United Kingdom">B Oldbury Sandwell United Kingdom</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply109')">
+            <div class="replyText" id="reply109" data-title="Stafford England" data-message="Stafford England">ST Stafford England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply110')">
+            <div class="replyText" id="reply110" data-title="Goole England" data-message="Goole England">DN Goole England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply111')">
+            <div class="replyText" id="reply111" data-title="Bromsgrove England" data-message="Bromsgrove England">B Bromsgrove England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply111')">
+            <div class="replyText" id="reply111" data-title="Bury England" data-message="Bury England">B Bury England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply112')">
+            <div class="replyText" id="reply112" data-title="Buxton England" data-message="Buxton England">SK Buxton England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply113')">
+            <div class="replyText" id="reply113" data-title="Uttoxeter England" data-message="Uttoxeter England">ST Uttoxeter England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply114')">
+            <div class="replyText" id="reply114" data-title="Ellesmere Port England" data-message="Ellesmere Port England">CH Ellesmere Port England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply115')">
+            <div class="replyText" id="reply115" data-title="Knutsford England" data-message="Knutsford England">WA Knutsford England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply115')">
+            <div class="replyText" id="reply115" data-title="Abergele Wales" data-message="Abergele Wales">LL Abergele Wales</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply116')">
+            <div class="replyText" id="reply116" data-title="Upton, Wirral" data-message="Upton, Wirral">CH Upton, Wirral</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply117')">
+            <div class="replyText" id="reply117" data-title="Ripley Nottinghamshire, United Kingdom" data-message="Ripley Nottinghamshire, United Kingdom">DE Ripley Nottinghamshire, United Kingdom</div>
+        </div>
+
+        <div class="replyContainer" onclick="copyToClipboard('reply118')">
+            <div class="replyText" id="reply118" data-title="Belper England" data-message="Belper England">DE Belper England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply119')">
+            <div class="replyText" id="reply119" data-title="Burton upon Trent England" data-message="Burton upon Trent England">DE Burton upon Trent England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply120')">
+            <div class="replyText" id="reply120" data-title="Belper England" data-message="Belper England">DE Belper England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply121')">
+            <div class="replyText" id="reply121" data-title="Lichfield England" data-message="Lichfield England">WS Lichfield England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply122')">
+            <div class="replyText" id="reply122" data-title="Burnley Lancashire" data-message="Burnley Lancashire">BB Burnley Lancashire</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply123')">
+            <div class="replyText" id="reply123" data-title="Hornsea, England" data-message="Hornsea, England">HU Hornsea, England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply124')">
+            <div class="replyText" id="reply124" data-title="Tadcaster, England" data-message="Tadcaster, England">LS Tadcaster, England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply125')">
+            <div class="replyText" id="reply125" data-title="Chester le Street, England" data-message="Chester le Street, England">DH Chester le Street, England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply126')">
+            <div class="replyText" id="reply12" data-title="Wednesbury England" data-message="Wednesbury England">WS Wednesbury England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply127')">
+            <div class="replyText" id="reply127" data-title="Llangollen Wales" data-message="Llangollen Wales">LL Llangollen Wales</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply128')">
+            <div class="replyText" id="reply128" data-title="Kenilworth Warwickshire" data-message="Kenilworth Warwickshire">CV Kenilworth Warwickshire</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply129')">
+            <div class="replyText" id="reply129" data-title="Fleetwood England" data-message="Fleetwood England">FY Fleetwood England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply130')">
+            <div class="replyText" id="reply130" data-title="Tamworth England" data-message="Tamworth England">B Tamworth England</div>
+        </div>
+
+        <div class="replyContainer" onclick="copyToClipboard('reply131')">
+            <div class="replyText" id="reply131" data-title="Altrincham England" data-message="Altrincham England">WA Altrincham England</div>
+        </div>
+
+        <div class="replyContainer" onclick="copyToClipboard('reply132')">
+            <div class="replyText" id="reply132" data-title="Wilmslow England" data-message="Wilmslow England">SK Wilmslow England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply133')">
+            <div class="replyText" id="reply133" data-title="Matlock, Derbyshire" data-message="Matlock, Derbyshire">DE Matlock, Derbyshire</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply134')">
+            <div class="replyText" id="reply134" data-title="Skelmersdale England" data-message="Skelmersdale England">WN Skelmersdale England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply135')">
+            <div class="replyText" id="reply135" data-title="Glossop, England" data-message="Glossop, England">SK Glossop, England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply136')">
+            <div class="replyText" id="reply136" data-title="Castleford, England" data-message="Castleford, England">WF Castleford, England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply137')">
+            <div class="replyText" id="reply137" data-title="Harrogate North Yorkshire" data-message="Harrogate North Yorkshire">HG Harrogate North Yorkshire</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply138')">
+            <div class="replyText" id="reply138" data-title="Coalville, Leicester" data-message="Coalville, Leicester">LE Coalville, Leicester</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply139')">
+            <div class="replyText" id="reply139" data-title="Much Wenlock" data-message="Much Wenlock">TF Much Wenlock</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply140')">
+            <div class="replyText" id="reply140" data-title="Kingswinford, West Midlands, United Kingdom" data-message="Kingswinford, West Midlands, United Kingdom">DY Kingswinford, West Midlands, United Kingdom</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply141')">
+            <div class="replyText" id="reply141" data-title="Swadlincote, England" data-message="Swadlincote, England">DE Swadlincote, England</div>
+        </div>
+
+        <div class="replyContainer" onclick="copyToClipboard('reply142')">
+            <div class="replyText" id="reply142" data-title="Dewsbury England" data-message="Dewsbury England">WF Dewsbury England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply143')">
+            <div class="replyText" id="reply143" data-title="Warwick, Warwickshire" data-message="Warwick, Warwickshire">CV Warwick, Warwickshire</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply144')">
+            <div class="replyText" id="reply144" data-title="Beverley East Riding of Yorkshire" data-message="Beverley East Riding of Yorkshire">HU Beverley East Riding of Yorkshire</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply145')">
+            <div class="replyText" id="reply145" data-title="Barnsley" data-message="Keighley">S </div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply146')">
+            <div class="replyText" id="reply146" data-title="Brigg North Lincolnshire" data-message="Brigg North Lincolnshire">DN Brigg North Lincolnshire</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply147')">
+            <div class="replyText" id="reply147" data-title="Scunthorpe England" data-message="Scunthorpe England">DN Scunthorpe England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply148')">
+            <div class="replyText" id="reply148" data-title="Ormskirk England" data-message="Ormskirk England">L Ormskirk England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply149')">
+            <div class="replyText" id="reply149" data-title="Bourne England" data-message="Bourne England">PE Bourne England </div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply151')">
+            <div class="replyText" id="reply151" data-title="Stamford, Lincolnshire" data-message="Stamford, Lincolnshire">PE Stamford, Lincolnshire</div>
+        </div>
+
+        <div class="replyContainer" onclick="copyToClipboard('reply152')">
+            <div class="replyText" id="reply152" data-title="Sleaford England" data-message="Sleaford England">PE Sleaford England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply150')">
+            <div class="replyText" id="reply150" data-title="Melton Mowbray England" data-message="Melton Mowbray England">LE Melton Mowbray England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply153')">
+            <div class="replyText" id="reply153" data-title="Oakham England" data-message="Oakham England">PE Oakham England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply154')">
+            <div class="replyText" id="reply154" data-title="Heanor England" data-message="Heanor England">DE Heanor England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply155')">
+            <div class="replyText" id="reply155" data-title="Alfreton England" data-message="Alfreton England">DE Alfreton England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply156')">
+            <div class="replyText" id="reply156" data-title="Leek, Stoke-On-Trent, United Kingdom" data-message="Leek, Stoke-On-Trent, United Kingdom">ST Leek, Stoke-On-Trent, United Kingdom</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply157')">
+            <div class="replyText" id="reply157" data-title="Buckley, Flintshire, United Kingdom" data-message="Buckley, Flintshire, United Kingdom">CH</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply158')">
+            <div class="replyText" id="reply158" data-title="Northwich England" data-message="Northwich England">CW Northwich England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply159')">
+            <div class="replyText" id="reply159" data-title="Nantwich England" data-message="Nantwich England">CW Nantwich England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply160')">
+            <div class="replyText" id="reply160" data-title="Sandbach England" data-message="Sandbach England">CW Sandbach England</div>
+        </div>
+
+        <div class="replyContainer" onclick="copyToClipboard('reply161')">
+            <div class="replyText" id="reply161" data-title="Congleton England" data-message="Congleton England">CW Congleton England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply163')">
+            <div class="replyText" id="reply163" data-title="Winsford, Cheshire" data-message="Winsford, Cheshire">CW Winsford, Cheshire</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply164')">
+            <div class="replyText" id="reply164" data-title="Alderley Edge England" data-message="Alderley Edge England">SK Alderley Edge England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply165')">
+            <div class="replyText" id="reply165" data-title="Heywood, Rochdale, United Kingdom" data-message="Heywood, Rochdale, United Kingdom">BL Heywood, Rochdale, United Kingdom</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply166')">
+            <div class="replyText" id="reply166" data-title="Brighouse England" data-message="Brighouse England">HD Brighouse England</div>
+        </div>
+
+        <div class="replyContainer" onclick="copyToClipboard('reply167')">
+            <div class="replyText" id="reply167" data-title="Darwen England" data-message="Darwen England">BB Darwen England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply168')">
+            <div class="replyText" id="reply168" data-title="Chorley England" data-message="Chorley England">PR Chorley England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply169')">
+            <div class="replyText" id="reply169" data-title="Leyland, Lancashire" data-message="Leyland, Lancashire">PR Leyland, Lancashire</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply170')">
+            <div class="replyText" id="reply170" data-title="North shields England" data-message="North shields England">NE North shields England</div>
+        </div>
+
+        <div class="replyContainer" onclick="copyToClipboard('reply171')">
+            <div class="replyText" id="reply171" data-title="Lytham St Annes, Lancashire" data-message="Lytham St Annes, Lancashire">FY Lytham St Annes, Lancashire</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply172')">
+            <div class="replyText" id="reply172" data-title="Ilkley England" data-message="Ilkley England">LS Ilkley England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply173')">
+            <div class="replyText" id="reply173" data-title="Otley England" data-message="Otley England">LS Otley England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply174')">
+            <div class="replyText" id="reply174" data-title="Cleckheaton England" data-message="Cleckheaton England">BD Cleckheaton England</div>
+        </div>
+
+        <div class="replyContainer" onclick="copyToClipboard('reply175')">
+            <div class="replyText" id="reply175" data-title="Batley England" data-message="Batley England">BD Batley England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply176')">
+            <div class="replyText" id="reply176" data-title="Mirfield England" data-message="Mirfield England">HD Mirfield England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply177')">
+            <div class="replyText" id="reply177" data-title="Elland England" data-message="Elland England">HD Elland England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply178')">
+            <div class="replyText" id="reply178" data-title="Knottingley England" data-message="Knottingley England">WF Knottingley England</div>
+        </div>
+
+        <div class="replyContainer" onclick="copyToClipboard('reply179')">
+            <div class="replyText" id="reply179" data-title="Selby England" data-message="Selby England">YO Selby England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply180')">
+            <div class="replyText" id="reply180" data-title="East Retford England" data-message="East Retford England">DN East Retford England</div>
+        </div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply181')">
+            <div class="replyText" id="reply181" data-title="Ilkeston England" data-message="Ilkeston England">DN Ilkeston England</div>
+        </div>
+
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply182')">
+            <div class="replyText" id="reply182" data-title="Rugeley England" data-message="Rugeley England">WS Rugeley England</div>
+        </div>
+
+
+
+
+
+
+        <!-- Add more replyContainers for other preset messages here -->
+    </div>
+
+    <div id="notification">Text copied to clipboard!</div>
+
+    <script>
+        function copyToClipboard(replyId) {
+            const replyText = document.getElementById(replyId);
+            const title = replyText.getAttribute("data-title");
+            const message = replyText.getAttribute("data-message");
+
+            const textarea = document.createElement("textarea");
+            textarea.value = message;
+            document.body.appendChild(textarea);
+
+            textarea.select();
+            document.execCommand("copy");
+
+            document.body.removeChild(textarea);
+
+            showNotification(title);
+        }
+
+        function showNotification(title) {
+            const notification = document.getElementById("notification");
+            notification.innerText = `Text copied to clipboard: ${title}`;
+            notification.style.animation = 'none'; // Reset animation
+            void notification.offsetWidth; // Trigger reflow to restart animation
+            notification.style.animation = null;
+
+            notification.style.opacity = 1;
+            notification.style.visibility = 'visible';
+
+            setTimeout(() => {
+                notification.style.opacity = 0;
+                notification.style.visibility = 'hidden';
+            }, 2000); // 2000 milliseconds (2 seconds) for the notification to fade out
+        }
+    </script>
+
+</body>
+</html>

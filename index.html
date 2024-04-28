@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xenzia ai</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Consolas, monospace;
+            overflow: hidden;
+            background-image: url('background.jpeg'); /* Replace 'background.jpg' with your image file */
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: green;
+        }
+
+        #matrix-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        #login-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.39);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border: none;
+            background-color: #4caf50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Popup styles */
+        #popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            display: none;
+        }
+
+        #popup-content {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="matrix-container"></div>
+
+    <div id="login-container">
+        <div class="container">
+            <h1 style="color:  rgb(210, 30, 30); font-weight: bolder;">Xenzia</h1>
+            <form id="loginForm">
+                <input type="text" id="username" placeholder="Username" required>
+                <br>
+                <input type="password" id="password" placeholder="Password" required>
+                <br>
+                <input type="submit" value="Login">
+            </form>
+        </div>
+    </div>
+
+    <div id="popup">
+        <div id="popup-content">
+            <p>Contact Azeem at 03013777525</p>
+        </div>
+    </div>
+
+    <script>
+        // Function to generate a random digit
+        function generateRandomDigit() {
+            return Math.floor(Math.random() * 10); // Generates a random number from 0 to 9
+        }
+
+        // Function to generate a falling number
+        function generateFallingNumber() {
+            return {
+                value: generateRandomDigit(),
+                x: Math.random() * window.innerWidth, // Random horizontal position
+                y: Math.random() * -100, // Start above the viewport
+                speed: Math.random() * 3 + 1 // Random speed between 1 and 4 pixels per frame
+            };
+        }
+
+        // Function to update falling numbers
+        function updateFallingNumbers(ctx, numbers) {
+            ctx.clearRect(0, 0, window.innerWidth, window.innerHeight); // Clear the canvas
+            ctx.font = '20px Consolas'; // Set font
+            ctx.fillStyle = 'red'; // Set color to red
+            numbers.forEach(number => {
+                // Update position
+                number.y += number.speed;
+                // Draw number
+                ctx.fillText(number.value, number.x, number.y);
+                // Reset position if it's below the viewport
+                if (number.y > window.innerHeight) {
+                    number.y = Math.random() * -100; // Start above the viewport
+                    number.x = Math.random() * window.innerWidth; // Random horizontal position
+                    number.speed = Math.random() * 3 + 1; // Random speed between 1 and 4 pixels per frame
+                }
+            });
+        }
+
+        // Initialize canvas and falling numbers
+        const canvas = document.createElement('canvas');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        document.getElementById('matrix-container').appendChild(canvas);
+        const ctx = canvas.getContext('2d');
+        const numbers = Array.from({ length: 100 }, generateFallingNumber); // Create 100 falling numbers
+
+        // Update falling numbers animation
+        function animate() {
+            updateFallingNumbers(ctx, numbers);
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        // Function to handle form submission
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            if (username === "xenzia" && password === "123456") {
+                // Successful login
+                window.location.href = "chat.html"; // Redirect to chat page
+            } else {
+                // Failed login
+                showPopup(); // Show animated popup
+            }
+        });
+
+        // Function to show animated popup
+        function showPopup() {
+            var popup = document.getElementById("popup");
+            popup.style.display = "block"; // Display popup
+
+            // Animate popup (optional)
+            // ...
+
+            // Close popup after 5 seconds (optional)
+            setTimeout(function() {
+                popup.style.display = "none"; // Hide popup
+            }, 5000);
+        }
+    </script>
+</body>
+</html>

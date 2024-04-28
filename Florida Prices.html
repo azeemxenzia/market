@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WE ARE LEGENG</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 20px;
+            background-color: #2c3e50;
+        }
+
+        #copyContainer {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 100px;
+            
+        }
+
+        .replyContainer {
+            margin: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
+            cursor: pointer;
+            width: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .replyText {
+            padding: 20px;
+            border: 2px solid rgb(243, 21, 21);
+            outline: 2px solid #95a5a6;
+            background-color: black;
+            color: azure;
+            text-align: center;
+            width: 100%;
+            height:auto;
+            overflow-block: hidden;
+            border-radius: 10px;
+            transition: background-color 0.5s ease;
+            align-self: flex-start; /* Add this line to align the replyText to the top */
+        }
+
+
+
+        .replyText:hover {
+            background-color: moccasin;
+            color: rgb(243, 21, 21);
+        }
+
+        #notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px;
+            background-color: #2ecc71;
+            color: #fff;
+            border-radius: 5px;
+            opacity: 0;
+            visibility: hidden;
+            animation: fadeInOut 1s ease-out forwards;
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; visibility: hidden; }
+            10% { opacity: 1; visibility: visible; }
+            90% { opacity: 1; visibility: visible; }
+            100% { opacity: 0; visibility: hidden; }
+        }
+
+        .title{
+            width: 100%;
+            height: auto;
+            padding: 10px;
+            font-size: 30px;
+            font-weight:bold;
+            transition: background-color 0.5s ease;
+            background-color: #2ecc71;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="copyContainer">
+        <div class="title" style="background-color: rgba(153, 3, 28, 0.815);"> Florida Bed with mattress</div>
+
+
+        <div class="replyContainer" onclick="copyToClipboard('reply16')">
+            <div class="replyText" id="reply16" data-title="Single" data-message="£180 for single size Florida/Arizona/Vivienne Base with Headboard and Footboard with super Orthopedic Firm mattress + 1 year warranty (Cash on delivery)">Single</div>
+        </div> 
+
+        <div class="replyContainer" onclick="copyToClipboard('reply17')">
+            <div class="replyText" id="reply17" data-title="DOUBLE" data-message="£210 for Double size Florida/Arizona/Vivienne Base with Headboard and Footboard with super Orthopedic Firm mattress + 1 year warranty (Cash on delivery)">DOUBLE</div>
+        </div>
+
+        <div class="replyContainer" onclick="copyToClipboard('reply18')">
+            <div class="replyText" id="reply18" data-title="SAMLL DOUBLE" data-message="£210 for Small Double size Florida/Arizona/Vivienne Base with Headboard and Footboard with super Orthopedic Firm mattress + 1 year warranty (Cash on delivery)">Small Double</div>
+        </div>
+
+        <div class="replyContainer" onclick="copyToClipboard('reply19')">
+            <div class="replyText" id="reply19" data-title="KING" data-message="£230 for King size Florida/Arizona/Vivienne Base with Headboard and Footboard with super Orthopedic Firm mattress Mattress + 1 year warranty (Cash on delivery)">KING</div>
+        </div>
+
+        <div class="replyContainer" onclick="copyToClipboard('reply20')">
+            <div class="replyText" id="reply20" data-title="SUPER KING" data-message="£310 for Super King size Florida/Arizona/Vivienne Base with Headboard and Footboard with super Orthopedic Firm mattress + 1 year warranty (Cash on delivery)">SUPER KING</div>
+        </div>
+
+        <div class="title" style="background-color: rgba(82, 153, 35, 0.952);"> Florida Base/Frame</div>
+
+        <div class="replyContainer" onclick="copyToClipboard('reply21')">
+            <div class="replyText" id="reply21" data-title="Single" data-message="£150 for single size Florida/Arizona/Vivienne Base with Headboard and Footboard Only + 1 year warranty (Cash on delivery)">Single</div>
+        </div> 
+
+        <div class="replyContainer" onclick="copyToClipboard('reply22')">
+            <div class="replyText" id="reply22" data-title="DOUBLE" data-message="£160 for Double size Florida/Arizona/Vivienne Base with Headboard and Footboard Only + 1 year warranty (Cash on delivery)">DOUBLE</div>
+        </div>
+
+        <div class="replyContainer" onclick="copyToClipboard('reply23')">
+            <div class="replyText" id="reply23" data-title="SAMLL DOUBLE" data-message="£160 for Small Double size Florida/Arizona/Vivienne Base with Headboard and Footboard Only + 1 year warranty (Cash on delivery)">Small Double</div>
+        </div>
+
+        <div class="replyContainer" onclick="copyToClipboard('reply24')">
+            <div class="replyText" id="reply24" data-title="KING" data-message="£180 for King size Florida/Arizona/Vivienne Base with Headboard and Footboard Only + 1 year warranty (Cash on delivery)">KING</div>
+        </div>
+
+        <div class="replyContainer" onclick="copyToClipboard('reply25')">
+            <div class="replyText" id="reply25" data-title="SUPER KING" data-message="£215 for Super King size Florida/Arizona/Vivienne Base with Headboard and Footboard Only + 1 year warranty (Cash on delivery)">SUPER KING</div>
+        </div>
+
+        <div class="title" style="background-color: rgb(28, 21, 122);"> Florida Ottoman Gas Lift Bed with mattress</div>
+
+        <div class="replyContainer" onclick="copyToClipboard('reply1')">
+            <div class="replyText" id="reply1" data-title="Single" data-message="£280 for single size Florida/Arizona/Vivienne Base with Headboard and Footboard with super Orthopedic Firm mattress Mattress + Ottoman Gas Lift + 1 year warranty (Cash on delivery)">Single</div>
+        </div> 
+
+        <div class="replyContainer" onclick="copyToClipboard('reply2')">
+            <div class="replyText" id="reply2" data-title="SAMLL DOUBLE" data-message="£305 for Small Double size Florida/Arizona/Vivienne Base with Headboard and Footboard with super Orthopedic Firm mattress Mattress + Ottoman Gas Lift + 1 year warranty (Cash on delivery)">Small Double</div>
+        </div>
+
+        <div class="replyContainer" onclick="copyToClipboard('reply3')">
+            <div class="replyText" id="reply3" data-title="DOUBLE" data-message="£305 for Double size Florida/Arizona/Vivienne Base with Headboard and Footboard with super Orthopedic Firm mattress Mattress + Ottoman Gas Lift + 1 year warranty (Cash on delivery)">DOUBLE</div>
+        </div>
+
+        <div class="replyContainer" onclick="copyToClipboard('reply4')">
+            <div class="replyText" id="reply4" data-title="KING" data-message="£325 for King size Florida/Arizona/Vivienne Base with Headboard and Footboard with super Orthopedic Firm mattress Mattress + Ottoman Gas Lift + 1 year warranty (Cash on delivery)">KING</div>
+        </div>
+
+        <div class="replyContainer" onclick="copyToClipboard('reply5')">
+            <div class="replyText" id="reply5" data-title="SUPER KING" data-message="£410 for Super King size Florida/Arizona/Vivienne Base with Headboard and Footboard with super Orthopedic Firm mattress Mattress + Ottoman Gas Lift + 1 year warranty (Cash on delivery)">SUPER KING</div>
+        </div>
+
+        <div class="title" style="background-color: rgb(197, 23, 197);"> Florida Ottoman Gas Lift Base/Frame</div>
+
+        <div class="replyContainer" onclick="copyToClipboard('reply6')">
+            <div class="replyText" id="reply6" data-title="Single" data-message="£255 for single size Florida/£240 for single size Florida/Arizona/Vivienne Base with Headboard and Footboard Only + Ottoman Gas Lift + 1 year warranty (Cash on delivery)/Vivienne Base with Headboard and Footboard Only + Ottoman Gas Lift + 1 year warranty (Cash on delivery)">Single</div>
+        </div> 
+
+        <div class="replyContainer" onclick="copyToClipboard('reply7')">
+            <div class="replyText" id="reply7" data-title="SAMLL DOUBLE" data-message="£265 for Double size Florida/Arizona/Vivienne Base with Headboard and Footboard Only + Ottoman Gas Lift + 1 year warranty (Cash on delivery)">Small Double</div>
+        </div>
+
+        <div class="replyContainer" onclick="copyToClipboard('reply8')">
+            <div class="replyText" id="reply8" data-title="DOUBLE" data-message="£265 for Double size Florida/Arizona/Vivienne Base with Headboard and Footboard Only + Ottoman Gas Lift + 1 year warranty (Cash on delivery)">DOUBLE</div>
+        </div>
+
+        <div class="replyContainer" onclick="copyToClipboard('reply9')">
+            <div class="replyText" id="reply9" data-title="KING" data-message="£285 for King size Florida/Arizona/Vivienne Base with Headboard and Footboard Only + Ottoman Gas Lift + 1 year warranty (Cash on delivery)">KING</div>
+        </div>
+
+        <div class="replyContainer" onclick="copyToClipboard('reply10')">
+            <div class="replyText" id="reply10" data-title="£315 for Super King size Florida/Arizona/Vivienne Base with Headboard and Footboard Only + Ottoman Gas Lift + 1 year warranty (Cash on delivery)">SUPER KING</div>
+        </div>
+
+        
+
+
+
+       
+        
+        <!-- Add more replyContainers for other preset messages here -->
+    </div>
+
+    <div id="notification">copied!</div>
+
+    <script>
+        function copyToClipboard(replyId) {
+            const replyText = document.getElementById(replyId);
+            const title = replyText.getAttribute("data-title");
+            const message = replyText.getAttribute("data-message");
+
+            const textarea = document.createElement("textarea");
+            textarea.value = message;
+            document.body.appendChild(textarea);
+
+            textarea.select();
+            document.execCommand("copy");
+
+            document.body.removeChild(textarea);
+
+            showNotification(title);
+        }
+
+        function showNotification(title) {
+            const notification = document.getElementById("notification");
+            notification.innerText = `copied: ${title}`;
+            notification.style.animation = 'none'; // Reset animation
+            void notification.offsetWidth; // Trigger reflow to restart animation
+            notification.style.animation = null;
+
+            notification.style.opacity = 1;
+            notification.style.visibility = 'visible';
+
+            setTimeout(() => {
+                notification.style.opacity = 0;
+                notification.style.visibility = 'hidden';
+            }, 2000); // 2000 milliseconds (2 seconds) for the notification to fade out
+        }
+    </script>
+
+</body>
+</html>
