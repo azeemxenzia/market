@@ -97,22 +97,14 @@
         var locationValue = locationInput.value.trim();
 
         if (locationValue !== "") {
-            var existingLocations = getExistingLocations();
-            existingLocations.push(locationValue);
-            saveLocations(existingLocations);
-            var li = createLocationElement(locationValue);
+            var li = document.createElement('li');
+            li.textContent = locationValue;
+            li.addEventListener('click', function() {
+                copyToClipboard(locationValue);
+            });
             locationList.appendChild(li);
             locationInput.value = "";
         }
-    }
-
-    function createLocationElement(text) {
-        var li = document.createElement('li');
-        li.textContent = text;
-        li.addEventListener('click', function() {
-            copyToClipboard(text);
-        });
-        return li;
     }
 
     function copyToClipboard(text) {
@@ -125,28 +117,11 @@
         alert('Copied: ' + text);
     }
 
-    function saveLocations(locations) {
-        var userId = getUserId(); // You need to implement this function to get the current user's ID
-        localStorage.setItem('userLocations_' + userId, JSON.stringify(locations));
-    }
-
-    function getExistingLocations() {
-        var userId = getUserId(); // You need to implement this function to get the current user's ID
-        var storedLocations = localStorage.getItem('userLocations_' + userId);
-        return storedLocations ? JSON.parse(storedLocations) : [];
-    }
-
-    function getUserId() {
-        // You need to implement this function to get the current user's ID
-        // This can be retrieved from user authentication or any other way you manage users
-        // For simplicity in this example, let's assume we have a globally available userId variable
-        return userId;
-    }
-
     function loadLocations() {
-        var locations = getExistingLocations();
-        locations.forEach(function(location) {
-            var li = createLocationElement(location);
-            locationList.appendChild(li);
-        });
+        // No need to load locations from localStorage in this case
+        // as we are not using localStorage to store locations in this version.
     }
+</script>
+
+</body>
+</html>
