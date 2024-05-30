@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            overflow: hidden;
+        }
+        .location-input-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        #locationInput {
+            flex: 1;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        #addLocationBtn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #addLocationBtn:hover {
+            background-color: #45a049;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #e0e0e0;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+        li:hover {
+            background-color: #d0d0d0;
+        }
+        @media screen and (max-width: 600px) {
+            .container {
+                max-width: 100%;
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2 style="text-align: center;">Locations</h2>
+    <div class="location-input-container">
+        <input type="text" id="locationInput" placeholder="Add a new location">
+        <button id="addLocationBtn">Add Location</button>
+    </div>
+    <ul id="locationList">
+        <!-- Locations will be added here -->
+    </ul>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        loadLocations();
+    });
+
+    var addLocationBtn = document.getElementById('addLocationBtn');
+    var locationInput = document.getElementById('locationInput');
+    var locationList = document.getElementById('locationList');
+
+    addLocationBtn.addEventListener('click', addLocation);
+
+    function addLocation() {
+        var locationValue = locationInput.value.trim();
+
+        if (locationValue !== "") {
+            var existingLocations = getExistingLocations();
+            existingLocations.push(locationValue);
+            saveLocations(existingLocations);
+            var li = createLocationElement(locationValue);
+            locationList.appendChild(li);
+            locationInput.value = "";
+        }
+    }
+
+    function createLocationElement(text) {
+        var li = document.createElement('li');
+        li.textContent = text;
+        li.addEventListener('click', function() {
+            copyToClipboard(text);
+        });
+        return li;
+    }
+
+    function copyToClipboard(text) {
+        var tempInput = document.createElement('input');
+        tempInput.value = text;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+        alert('Copied: ' + text);
+    }
+
+    function saveLocations(locations) {
+        var userId = getUserId(); // You need to implement this function to get the current user's ID
+        localStorage.setItem('userLocations_' + userId, JSON.stringify(locations));
+    }
+
+    function getExistingLocations() {
+        var userId = getUserId(); // You need to implement this function to get the current user's ID
+        var storedLocations = localStorage.getItem('userLocations_' + userId);
+        return storedLocations ? JSON.parse(storedLocations) : [];
+    }
+
+    function getUserId() {
+        // You need to implement this function to get the current user's ID
+        // This can be retrieved from user authentication or any other way you manage users
+        // For simplicity in this example, let's assume we have a globally available userId variable
+        return userId;
+    }
+
+    function loadLocations() {
+        var locations = getExistingLocations();
+        locations.forEach(function(location) {
+            var li = createLocationElement(location);
+            locationList.appendChild(li);
+        });
+    }
