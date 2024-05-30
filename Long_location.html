@@ -72,7 +72,7 @@
 <body>
 
 <div class="container">
-    <h2 style="text-align: center;">Locations</h2>
+    <h2 style="text-align: center;">Long Routes Locations</h2>
     <div class="location-input-container">
         <input type="text" id="locationInput" placeholder="Add a new location">
         <button id="addLocationBtn">Add Location</button>
@@ -97,12 +97,18 @@
         var locationValue = locationInput.value.trim();
 
         if (locationValue !== "") {
-            var li = document.createElement('li');
-            li.textContent = locationValue;
-            li.addEventListener('click', function() {
-                copyToClipboard(locationValue);
-            });
-            locationList.appendChild(li);
+            var existingLocations = getExistingLocations();
+            if (existingLocations.includes(locationValue)) {
+                alert("This location already exists");
+            } else {
+                var li = document.createElement('li');
+                li.textContent = locationValue;
+                li.addEventListener('click', function() {
+                    copyToClipboard(locationValue);
+                });
+                locationList.appendChild(li);
+                saveLocation(locationValue);
+            }
             locationInput.value = "";
         }
     }
@@ -117,9 +123,26 @@
         alert('Copied: ' + text);
     }
 
+    function saveLocation(location) {
+        var locations = getExistingLocations();
+        locations.push(location);
+        localStorage.setItem('locations', JSON.stringify(locations));
+    }
+
     function loadLocations() {
-        // No need to load locations from localStorage in this case
-        // as we are not using localStorage to store locations in this version.
+        var locations = getExistingLocations();
+        locations.forEach(function(location) {
+            var li = document.createElement('li');
+            li.textContent = location;
+            li.addEventListener('click', function() {
+                copyToClipboard(location);
+            });
+            locationList.appendChild(li);
+        });
+    }
+
+    function getExistingLocations() {
+        return JSON.parse(localStorage.getItem('locations')) || [];
     }
 </script>
 
