@@ -1,150 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Location List</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 600px;
-            margin: 20px auto;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            overflow: hidden;
-        }
-        .location-input-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        #locationInput {
-            flex: 1;
-            padding: 10px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            font-size: 16px;
-            box-sizing: border-box;
-        }
-        #addLocationBtn {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            padding: 10px 20px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        #addLocationBtn:hover {
-            background-color: #45a049;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            background-color: #e0e0e0;
-            margin: 10px 0;
-            padding: 10px;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-            cursor: pointer;
-        }
-        li:hover {
-            background-color: #d0d0d0;
-        }
-        @media screen and (max-width: 600px) {
-            .container {
-                max-width: 100%;
-                border-radius: 0;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Long Routes Location</title>
+<style>
+    body, html {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        display: ruby;
+        flex-wrap: wrap; /* Allow items to wrap to the next line */
+        justify-content: flex-start; /* Align items from start */
+        align-items: flex-start; /* Align items from start */
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        overflow: hidden; /* Hide scroll bar */
+    }
+    .text {
+        cursor: pointer;
+        padding: 10px;
+        background-color: #f2f2f2;
+        border-radius: 5px;
+        white-space: nowrap; /* Prevent text from wrapping */
+        overflow: hidden; /* Hide overflowing text */
+        text-overflow: ellipsis; /* Add ellipsis (...) for overflowing text */
+        max-width: 200px; /* Set maximum width for each text item */
+        margin: 0; /* Remove vertical and horizontal spacing */
+        flex-shrink: 0; /* Prevent items from shrinking */
+    }
+    .text:hover {
+        background-color: #9b076a;
+    }
+</style>
 </head>
 <body>
+    <div class="container">
+        <div class="text" onclick="copyText(this)">Huntingdon England</div>
+<div class="text" onclick="copyText(this)">Northampton Northamptonshire</div>
+<div class="text" onclick="copyText(this)">Corby England</div>
+<div class="text" onclick="copyText(this)">Peterborough England</div>
+<div class="text" onclick="copyText(this)">Boston Lincolnshire, United Kingdom</div>
+<div class="text" onclick="copyText(this)">Spalding Lincolnshire</div>
+<div class="text" onclick="copyText(this)">Kettering Northamptonshire, United Kingdom</div>
+<div class="text" onclick="copyText(this)">Lincoln Lincolnshire</div>
+<div class="text" onclick="copyText(this)">Market Harborough England</div>
+<div class="text" onclick="copyText(this)">Leicester United Kingdom</div>
+<div class="text" onclick="copyText(this)">Rushden England</div>
+<div class="text" onclick="copyText(this)">Wisbech England</div>
+<div class="text" onclick="copyText(this)">St neots England</div>
+<div class="text" onclick="copyText(this)">Wellingborough Northamptonshire</div>
+<div class="text" onclick="copyText(this)">Kingston upon Hull</div>
+<div class="text" onclick="copyText(this)">Newcastle-under-Lyme England</div>
+<div class="text" onclick="copyText(this)">Nottingham United Kingdom</div>
+<div class="text" onclick="copyText(this)">Mansfield Nottinghamshire</div>
+<div class="text" onclick="copyText(this)">Blackpool England</div>
+<div class="text" onclick="copyText(this)">Wrexham Wales</div>
+<div class="text" onclick="copyText(this)">Chesterfield England</div>
+<div class="text" onclick="copyText(this)">Worksop England</div>
+<div class="text" onclick="copyText(this)">Preston Lancashire</div>
+<div class="text" onclick="copyText(this)">Bolton England</div>
+<div class="text" onclick="copyText(this)">St. Helens Merseyside</div>
+<div class="text" onclick="copyText(this)">Stockport England</div>
+<div class="text" onclick="copyText(this)">Halifax England</div>
+<div class="text" onclick="copyText(this)">Middlesbrough England</div>
+<div class="text" onclick="copyText(this)">Redditch England</div>
+<div class="text" onclick="copyText(this)">Stockton-on-Tees England</div>
+<div class="text" onclick="copyText(this)">Keighley England</div>
+<div class="text" onclick="copyText(this)">Gateshead England</div>
+<div class="text" onclick="copyText(this)">City of Sunderland England</div>
+<div class="text" onclick="copyText(this)">Durham Durham</div>
+<div class="text" onclick="copyText(this)">Darlington Co Durham</div>
+<div class="text" onclick="copyText(this)">Preston Lancashire</div>
+<div class="text" onclick="copyText(this)">Normanton West Yorkshire</div>
+<div class="text" onclick="copyText(this)">Bootle England</div>
+<div class="text" onclick="copyText(this)">Smethwick England</div>
+<div class="text" onclick="copyText(this)">Macclesfield England</div>
+<div class="text" onclick="copyText(this)">Liverpool England</div>
+<div class="text" onclick="copyText(this)">Nelson, Lancashire</div>
+<div class="text" onclick="copyText(this)">Rochdale England</div>
+<div class="text" onclick="copyText(this)">Oldham United Kingdom</div>
+<div class="text" onclick="copyText(this)">Walsall England</div>
+<div class="text" onclick="copyText(this)">Manchester United Kingdom</div>
+<div class="text" onclick="copyText(this)">Leeds England</div>
+<div class="text" onclick="copyText(this)">Birkenhead England</div>
+<div class="text" onclick="copyText(this)">Southport England</div>
+<div class="text" onclick="copyText(this)">Solihull England</div>
+<div class="text" onclick="copyText(this)">Cannock England</div>
+<div class="text" onclick="copyText(this)">Jarrow England</div>
+<div class="text" onclick="copyText(this)">Chester Cheshire</div>
+<div class="text" onclick="copyText(this)">Skipton England</div>
+<div class="text" onclick="copyText(this)">Newcastle upon tyne England</div>
+<div class="text" onclick="copyText(this)">South Shields England</div>
+<div class="text" onclick="copyText(this)">Runcorn England</div>
+<div class="text" onclick="copyText(this)">Accrington England</div>
+<div class="text" onclick="copyText(this)">Loughborough England</div>
+<div class="text" onclick="copyText(this)">Crewe England</div>
+<div class="text" onclick="copyText(this)">Coventry United kingdom</div>
+<div class="text" onclick="copyText(this)">Nuneaton Warwickshire</div>
+<div class="text" onclick="copyText(this)">Rugby Warwickshire</div>
+<div class="text" onclick="copyText(this)">Dudley England</div>
+<div class="text" onclick="copyText(this)">Stourbridge England</div>
+<div class="text" onclick="copyText(this)">Dronfield England</div>
+<div class="text" onclick="copyText(this)">Kidderminster England</div>
+<div class="text" onclick="copyText(this)">Derby England</div>
+<div class="text" onclick="copyText(this)">Telford England</div>
+<div class="text" onclick="copyText(this)">Wolverhampton England</div>
+<div class="text" onclick="copyText(this)">Bilston England</div>
+<div class="text" onclick="copyText(this)">Stoke-on trent England</div>
+<div class="text" onclick="copyText(this)">Wigan England</div>
+<div class="text" onclick="copyText(this)">Sheffield England</div>
+<div class="text" onclick="copyText(this)">Rotherham England</div>
+<div class="text" onclick="copyText(this)">Barnsley England</div>
+<div class="text" onclick="copyText(this)">Wakefield England</div>
+<div class="text" onclick="copyText(this)">City of Bradford</div>
+<div class="text" onclick="copyText(this)">Doncaster England</div>
+<div class="text" onclick="copyText(this)">York England</div>
+<div class="text" onclick="copyText(this)">Huddersfield England</div>
+<div class="text" onclick="copyText(this)">Spennymoor England</div>
+<div class="text" onclick="copyText(this)">Blackburn England</div>
+<div class="text" onclick="copyText(this)">Clith
 
-<div class="container">
-    <h2 style="text-align: center;">Long Routes Locations</h2>
-    <div class="location-input-container">
-        <input type="text" id="locationInput" placeholder="Add a new location">
-        <button id="addLocationBtn">Add Location</button>
+        
     </div>
-    <ul id="locationList">
-        <!-- Locations will be added here -->
-    </ul>
-</div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', (event) => {
-        loadLocations();
-    });
-
-    var addLocationBtn = document.getElementById('addLocationBtn');
-    var locationInput = document.getElementById('locationInput');
-    var locationList = document.getElementById('locationList');
-
-    addLocationBtn.addEventListener('click', addLocation);
-
-    function addLocation() {
-        var locationValue = locationInput.value.trim();
-
-        if (locationValue !== "") {
-            var existingLocations = getExistingLocations();
-            if (existingLocations.includes(locationValue)) {
-                alert("This location already exists");
-            } else {
-                var li = document.createElement('li');
-                li.textContent = locationValue;
-                li.addEventListener('click', function() {
-                    copyToClipboard(locationValue);
-                });
-                locationList.appendChild(li);
-                saveLocation(locationValue);
-            }
-            locationInput.value = "";
-        }
-    }
-
-    function copyToClipboard(text) {
-        var tempInput = document.createElement('input');
-        tempInput.value = text;
-        document.body.appendChild(tempInput);
-        tempInput.select();
-        document.execCommand('copy');
-        document.body.removeChild(tempInput);
-        alert('Copied: ' + text);
-    }
-
-    function saveLocation(location) {
-        var locations = getExistingLocations();
-        locations.push(location);
-        localStorage.setItem('locations', JSON.stringify(locations));
-    }
-
-    function loadLocations() {
-        var locations = getExistingLocations();
-        locations.forEach(function(location) {
-            var li = document.createElement('li');
-            li.textContent = location;
-            li.addEventListener('click', function() {
-                copyToClipboard(location);
-            });
-            locationList.appendChild(li);
-        });
-    }
-
-    function getExistingLocations() {
-        return JSON.parse(localStorage.getItem('locations')) || [];
-    }
+function copyText(element) {
+    var text = element.innerText.trim();
+    var input = document.createElement('input');
+    input.style.position = 'fixed';
+    input.style.opacity = 0;
+    input.value = text;
+    document.body.appendChild(input);
+    input.select();
+    input.setSelectionRange(0, 99999);
+    document.execCommand('copy');
+    document.body.removeChild(input);
+    element.style.backgroundColor = '#9b076a';
+    
+}
 </script>
-
 </body>
 </html>
